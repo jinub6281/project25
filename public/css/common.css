@@ -1,0 +1,175 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: #f3f4f6;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.with-sidebar {
+  display: flex;
+}
+
+/* 사이드바 */
+.sidebar {
+  width: 220px;
+  background: #ffffff;
+  padding: 20px 16px;
+  margin: 16px;
+
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.upload-box {
+  background: white;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+  max-width: 500px;
+}
+
+.progress {
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  margin-top: 12px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #6366f1;
+  border-radius: 999px;
+  transition: width .2s;
+}
+
+/* 오른쪽 메인 영역 */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  position: relative;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 8px 12px;
+  border-radius: 12px;
+}
+
+.center-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 메뉴 */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.menu-btn {
+  text-align: left;
+  padding: 12px 16px;
+  border-radius: 999px; /* ⭐ 핵심 */
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.menu-btn:hover {
+  background: #f3f4f6;
+}
+
+.menu-btn.active {
+  background: #6366f1;
+  color: white;
+  font-weight: 600;
+}
+
+
+.bg-box {
+  max-width: 480px;
+  margin: 80px auto 0;
+}
+
+.top-actions {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.top-right-buttons {
+  position: fixed;      /* ⭐ 핵심 */
+  top: 16px;
+  right: 16px;
+
+  display: flex;
+  gap: 10px;
+
+  z-index: 9999;        /* 무조건 위로 */
+}
+
+.top-right-buttons button {
+  background-color: #222;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.main-content {
+  flex: 1;
+  padding: 40px;
+  margin-left: 220px; /*sidebar 폭*/
+}
+
+
+.bg-box {
+  max-width: 480px;
+}
+
+/* ===== 다크모드 ===== */
+body.dark {
+  background: #121212;
+  color: #e5e7eb;
+  display: flex;
+}
+
+/* 다크모드일 때 버튼 색 변경 */
+body.dark .top-right-buttons button {
+  background-color: #e5e7eb;
+  color: #111;
+}
+
+/* 호버 효과 */
+.top-right-buttons button:hover {
+  background-color: #444;
+}
+
+body.dark .top-right-buttons button:hover {
+  background-color: #d1d5db;
+}
+
+body.no-sidebar {
+  display: block;
+}

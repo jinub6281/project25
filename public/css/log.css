@@ -1,0 +1,43 @@
+.log-list {
+  margin-top: 16px;
+  max-height: 520px;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.log-item {
+  background: #ffffff;
+  padding: 12px 14px;
+  border-radius: 12px;
+
+  font-size: 13.5px;
+  line-height: 1.5;
+  letter-spacing: 0.1px;
+
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+
+  /* ⭐ 핵심 */
+  font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+  word-break: break-all;
+}
+
+/* hover */
+.log-item:hover {
+  background: #f9fafb;
+}
+
+/* 다크모드 */
+body.dark .log-item {
+  background: #020617;
+  border-color: #334155;
+  color: #e5e7eb;
+  box-shadow: none;
+}
+
+body.dark .log-item:hover {
+  background: #020617;
+}

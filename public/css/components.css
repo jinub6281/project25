@@ -1,0 +1,41 @@
+/* components.css */
+.card,
+.bg-box {
+  background: white;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+body.dark .card,
+body.dark .bg-box {
+  background: #020617;
+}
+
+/* input */
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+input:focus {
+  border-color: #6366f1;
+  outline: none;
+}
+
+/* 버튼 */
+button.primary {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #6366f1;
+  color: white;
+  cursor: pointer;
+}
+
+button.primary:hover {
+  background: #4f46e5;
+}

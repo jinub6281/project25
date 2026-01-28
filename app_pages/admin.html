@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>관리자 관리</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body class="with-sidebar">
+
+  <main class="main-content">
+    <div class="bg-box admin-wrap">
+
+      <h2>관리자 계정 관리</h2>
+      <p class="desc">등록된 관리자 계정 목록입니다</p>
+
+      <div id="adminList" class="admin-list"></div>
+
+    </div>
+  </main>
+
+  <!-- 비밀번호 재설정 모달 -->
+  <div id="pwModal" class="modal hidden">
+    <div class="modal-box">
+      <h3>비밀번호 재설정</h3>
+      <p id="modalUser"></p>
+
+      <input
+        type="password"
+        id="newPassword"
+        placeholder="새 비밀번호"
+      />
+
+      <div class="modal-actions">
+        <button class="btn cancel" onclick="closeModal()">취소</button>
+        <button class="btn confirm" onclick="submitReset()">변경</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>계정 추가</title>
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="with-sidebar">
+
+  <div class="dashboard-wrap">
+    <h2>Administrator Dashboard</h2>
+    <p class="desc">관리자 계정을 추가할 수 있습니다</p>
+
+    <form id="addAdmin" class="card">
+      <input id="newId" placeholder="새 관리자 ID">
+      <input id="newPw" type="password" placeholder="비밀번호">
+      <button type="submit">관리자 추가</button>
+    </form>
+  </div>
+
+  <!-- 페이지 보호 -->
+  <script src="js/auth.js"></script>
+  <!-- 대시보드 전용 JS -->
+  <script src="js/dashboard.js"></script>
+  <!-- 사이드바 -->
+   <script src="js/sidebar.js"></script>
+</body>
+</html>

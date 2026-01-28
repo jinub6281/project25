@@ -1,0 +1,56 @@
+/* index.css */
+
+/* 중앙 정렬 */
+.index-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 카드 박스 */
+.index-box {
+  width: 380px;
+  padding: 28px;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,.12);
+  text-align: center;
+  transition: background .3s;
+}
+
+body.dark .index-box {
+  background: #020617;
+}
+
+/* 제목 */
+.index-box h1 {
+  margin-bottom: 16px;
+}
+
+/* input */
+.index-box input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  margin-bottom: 12px;
+}
+
+/* 버튼 */
+.index-box button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  background: #6366f1;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+
+.index-box button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(99,102,241,.4);
+}
