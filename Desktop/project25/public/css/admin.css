@@ -1,0 +1,202 @@
+/* ===== 레이아웃 ===== */
+.admin-wrap {
+  max-width: 480px;
+  margin: 80px auto;
+  padding: 0 16px;
+}
+
+.admin-wrap h2 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.admin-wrap .desc {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+/* ===== 관리자 리스트 ===== */
+.admin-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-item {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.admin-item span {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.admin-item .actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* ===== 버튼 (dashboard 스타일) ===== */
+.admin-item button,
+.modal-actions .btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  background: #6366f1;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.1s;
+}
+
+.admin-item button:hover,
+.modal-actions .btn.confirm:hover {
+  background: #4f46e5;
+}
+
+.admin-item button:active,
+.modal-actions .btn:active {
+  transform: scale(0.97);
+}
+
+.btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn.reset {
+  background: #6366f1;
+  color: white;
+}
+
+.btn.delete {
+  background: #ef4444;
+  color: white;
+}
+
+.btn.delete:hover {
+  background: #dc2626;
+}
+
+.btn.cancel {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.btn.cancel:hover {
+  background: #d1d5db;
+}
+
+/* ===== 모달 ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-box {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  width: 320px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  animation: modalPopIn 0.25s ease-out;
+}
+
+.modal-box h3 {
+  font-size: 18px;
+}
+
+.modal-box p {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.modal-box input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+/* ===== 모달 애니메이션 ===== */
+@keyframes modalPopIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes modalFadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modalPopOut {
+  to {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+.modal.closing {
+  animation: modalFadeOut 0.2s ease-in forwards;
+}
+
+.modal.closing .modal-box {
+  animation: modalPopOut 0.2s ease-in forwards;
+}
+
+/* 🌙 다크모드 */
+body.dark .admin-item,
+body.dark .modal-box {
+  background: #020617;
+  border-color: #334155;
+  color: #e5e7eb;
+}
+
+body.dark .admin-wrap .desc,
+body.dark .modal-box p {
+  color: #9ca3af;
+}
+
+body.dark .btn.cancel {
+  background: #334155;
+  color: #e5e7eb;
+}

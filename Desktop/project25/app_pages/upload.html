@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>파일 업로드</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/upload.css">
+</head>
+<body class="with-sidebar">
+
+  <main class="main-content">
+    <div class="upload-wrap">
+      <h2>파일 업로드</h2>
+      <p class="desc">내 PC 서버로 파일을 업로드합니다</p>
+
+      <div class="card">
+        <form id="uploadForm">
+
+  <!-- 숨겨진 파일 input -->
+  <input type="file" id="fileInput" hidden>
+
+  <!-- 파일 선택 버튼 -->
+  <button type="button" id="selectFileBtn">
+    파일 선택
+  </button>
+
+  <!-- 파일명 표시 -->
+  <p id="fileName" class="file-name">선택된 파일 없음</p>
+
+  <!-- 업로드 -->
+  <button type="submit">업로드</button>
+
+</form>
+
+        <p id="result"></p>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/sidebar.js"></script>
+
+  <script>
+  const form = document.getElementById("uploadForm");
+  const fileInput = document.getElementById("fileInput");
+  const fileName = document.getElementById("fileName");
+  const selectBtn = document.getElementById("selectFileBtn");
+  const result = document.getElementById("result");
+
+  selectBtn.onclick = () => fileInput.click();
+
+  fileInput.onchange = () => {
+    if (fileInput.files.length > 0) {
+      fileName.textContent = fileInput.files[0].name;
+    } else {
+      fileName.textContent = "선택된 파일 없음";
+    }
+  };
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+
+    const file = fileInput.files[0];
+    if (!file) return alert("파일을 선택하세요");
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    const res = await fetch("/api/upload", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      result.innerHTML = `✅ 업로드 완료<br>
+      <a href="${data.url}" target="_blank">${data.original}</a>`;
+    } else {
+      result.textContent = "❌ 업로드 실패";
+    }
+  });
+</script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+/* base.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #f3f4f6;
+  color: #111827;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* 다크모드 공통 */
+body.dark {
+  background: #121212;
+  color: #e5e7eb;
+}

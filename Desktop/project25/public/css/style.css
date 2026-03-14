@@ -1,0 +1,111 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Pretendard', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #f3f4f6;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* 다크모드 */
+body.dark {
+  background: #0c0c0c;
+  color: #e5e7eb;
+}
+
+.center-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 카드 박스 */
+.bg-box {
+  width: 360px;
+  padding: 28px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  transition: background 0.3s;
+}
+
+body.dark .bg-box {
+  background: #020617;
+}
+
+/* 제목 */
+.bg-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* 입력창 */
+.bg-box input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  font-size: 14px;
+}
+
+.bg-box input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99,102,241,.2);
+}
+
+/* 버튼 */
+.bg-box button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #6366f1;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s, background .15s;
+}
+
+.bg-box button:hover {
+  background: #4f46e5;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(99,102,241,.4);
+}
+
+/* 링크 */
+.bg-box p {
+  margin-top: 14px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.bg-box a {
+  color: #6366f1;
+  text-decoration: none;
+}
+
+/* 다크모드 버튼 */
+.dark-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  border: none;
+  background: #111827;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+body.dark .dark-toggle {
+  background: #e5e7eb;
+  color: #111827;
+}

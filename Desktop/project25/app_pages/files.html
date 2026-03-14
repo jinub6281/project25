@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>파일 목록</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/files.css">
+</head>
+<body class="with-sidebar">
+
+  <main class="main-content">
+    <div class="files-wrap">
+      <h2>내 파일</h2>
+      <p class="desc">서버에 업로드된 파일 목록</p>
+
+      <div class="card" id="fileList">
+        로딩중...
+      </div>
+    </div>
+  </main>
+
+  <script src="js/sidebar.js"></script>
+
+  <script>
+    async function loadFiles() {
+      const res = await fetch("/api/files");
+      const files = await res.json();
+
+      const box = document.getElementById("fileList");
+
+      if (files.length === 0) {
+        box.textContent = "업로드된 파일이 없습니다";
+        return;
+      }
+
+      box.innerHTML = "";
+
+      files.forEach(file => {
+        const item = document.createElement("div");
+        item.className = "file-item";
+
+        item.innerHTML = `
+          <a href="${file.url}" target="_blank">${file.name}</a>
+          <button onclick="deleteFile('${file.name}')">삭제</button>
+        `;
+
+        box.appendChild(item);
+      });
+    }
+
+    async function deleteFile(name) {
+      if (!confirm("삭제할까요?")) return;
+
+      const res = await fetch("/api/files/" + name, { method: "DELETE" });
+      const data = await res.json();
+
+      if (data.success) loadFiles();
+      else alert("삭제 실패");
+    }
+
+    loadFiles();
+  </script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

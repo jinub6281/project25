@@ -1,0 +1,49 @@
+.center-wrap {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-wrap {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 카드 */
+.bg-box {
+  width: 360px;
+  padding: 28px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+body.dark .bg-box {
+  background: #020617;
+}
+
+/* 입력 / 버튼 */
+.bg-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.bg-box input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+}
+
+.bg-box button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #6366f1;
+  color: white;
+}
